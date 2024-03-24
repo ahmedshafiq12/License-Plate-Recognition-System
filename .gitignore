@@ -164,3 +164,4 @@ cython_debug/
 /output_video.mp4
 /main2.py
 /license-plate-detector-training.ipynb
+/weights/PlateDetector.pt

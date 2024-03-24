@@ -3,7 +3,7 @@ from src.utils import get_car
 
 class PlateDetector:
     def __init__(self):
-        self.plate_model = YOLO("weights/PlateDetector.pt")
+        self.plate_model = YOLO("weights/PlateDetectorNano.pt")
         self.plate_model.fuse()
         self.vehicles_model = YOLO("weights/yolov8n.pt")
         self.vehicles_model.fuse()
