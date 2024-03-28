@@ -1,111 +1,53 @@
 ### License Plate Recognition System
 
-#### Description:
-The License Plate Recognition (LPR) System is a computer vision project designed to detect and recognize license plates in images or video streams. It utilizes machine learning and image processing techniques to locate license plates within images or frames and then extract alphanumeric characters from the plates.
-
-#### Features:
-- Detects license plates from images or video streams.
-- Extracts alphanumeric characters from the detected license plates.
-- Supports real-time processing for video streams.
-- Provides accuracy in recognizing license plate characters.
-- Highly configurable for various environments and scenarios.
-
-#### Technologies Used:
-- Python
-- OpenCV (Open Source Computer Vision Library)
-- Machine Learning/Deep Learning Models (such as Convolutional Neural Networks)
-- NumPy
-- Matplotlib (for visualization, optional)
-- Flask (for web-based interface, optional)
-
-#### Installation:
-1. Clone the repository:
-   ```
-   git clone https://github.com/your_username/license_plate_recognition.git
-   ```
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Download pre-trained models (if necessary) and place them in the appropriate directory.
-
-#### Usage:
-1. Run the main script:
-   ```
-   python main.py
-   ```
-2. Follow the instructions for providing input images or video streams.
-3. View the output with detected license plates and recognized characters.
-
-#### Configuration:
-- Adjust parameters such as confidence thresholds, model paths, and input/output settings in the configuration file (`config.py`).
-
-#### Contributions:
-Contributions to the project are welcome. Please feel free to fork the repository, make changes, and submit a pull request.
-
-#### License:
-This project is licensed under the [MIT License](LICENSE).
-
-#### Credits:
-- The implementation of the LPR algorithm was inspired by various open-source projects and research papers in the field of computer vision and machine learning.
-
----
-
-### README.md
-
-```
-# License Plate Recognition System
-
 ## Description
-The License Plate Recognition (LPR) System is a computer vision project designed to detect and recognize license plates in images or video streams. It utilizes machine learning and image processing techniques to locate license plates within images or frames and then extract alphanumeric characters from the plates.
+The License Plate Recognition (LPR) System is a computer vision project designed to detect and recognize license plates in images or video streams. The system utilizes a pipeline that processes each frame of a video. It begins by detecting vehicles using a pre-trained YOLO model, followed by detecting license plates within the detected vehicles using a custom-trained model. Subsequently, detected plates are assigned to their corresponding vehicles, and the contents of the plates are read using the PaddleOCR English pretrained model. Vehicle tracking is achieved using bytetrack, and the details of tracking are saved.
 
 ## Features
-- Detects license plates from images or video streams.
+- Detects license plates from video streams.
 - Extracts alphanumeric characters from the detected license plates.
-- Supports real-time processing for video streams.
-- Provides accuracy in recognizing license plate characters.
-- Highly configurable for various environments and scenarios.
+- Associates detected plates with their respective vehicles.
+- Utilizes a custom-trained license plate detection model.
+- Reads license plate contents using the PaddleOCR English pretrained model.
+- Tracks vehicles using ByteTrack algorithm.
 
 ## Technologies Used
 - Python
 - OpenCV (Open Source Computer Vision Library)
-- Machine Learning/Deep Learning Models (such as Convolutional Neural Networks)
-- NumPy
-- Matplotlib (for visualization, optional)
-- Flask (for web-based interface, optional)
+- YOLO (You Only Look Once) object detection model
+- PaddleOCR English pretrained model
+- ByteTrack algorithm
+
+## Training the License Plate Detection Model
+To train the license plate detection model, a custom dataset was used. The training process and the dataset can be found in the following resources:
+- [Training Notebook](https://www.kaggle.com/code/ahmedshafiq12/license-plate-detector-training)
+- [Dataset](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4)
 
 ## Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/your_username/license_plate_recognition.git
+   git clone https://github.com/theonlyshafiq/License-Plate-Recognition-System.git
    ```
 2. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
-3. Download pre-trained models (if necessary) and place them in the appropriate directory.
-
+   
 ## Usage
-1. Run the main script:
+1. Run the main script with the following command:
    ```
-   python main.py
+   python main.py -i input_video.mp4 -d
    ```
-2. Follow the instructions for providing input images or video streams.
-3. View the output with detected license plates and recognized characters.
+   - `-i`: Specify the input video file path.
+   - `-d`: (Optional) Display the output while the video is being processed.
 
-## Configuration
-- Adjust parameters such as confidence thresholds, model paths, and input/output settings in the configuration file (`config.py`).
+2. Follow the instructions to provide the input video stream.
+
+3. View the output with detected cars and recognized characters.
 
 ## Contributions
 Contributions to the project are welcome. Please feel free to fork the repository, make changes, and submit a pull request.
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
-## Credits
-- The implementation of the LPR algorithm was inspired by various open-source projects and research papers in the field of computer vision and machine learning.
-```
-
-This README file provides an overview of the project, installation instructions, usage guidelines, and other relevant information for potential users and contributors. Adjustments can be made based on specific project requirements and preferences.
+## Sample Output Video with Visualization
 
 https://github.com/theonlyshafiq/License-Plate-Recognition-System/assets/63657698/3a287c0f-164b-44a1-a632-e92de745965f
