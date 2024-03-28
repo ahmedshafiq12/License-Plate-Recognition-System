@@ -3,6 +3,9 @@
 ## Description
 The License Plate Recognition (LPR) System is a computer vision project designed to detect and recognize license plates in images or video streams. The system utilizes a pipeline that processes each frame of a video. It begins by detecting vehicles using a pre-trained YOLO model, followed by detecting license plates within the detected vehicles using a custom-trained model. Subsequently, detected plates are assigned to their corresponding vehicles, and the contents of the plates are read using the PaddleOCR English pretrained model. Vehicle tracking is achieved using bytetrack, and the details of tracking are saved.
 
+## Sample Output Video with Visualization
+https://github.com/theonlyshafiq/License-Plate-Recognition-System/assets/63657698/3a287c0f-164b-44a1-a632-e92de745965f
+
 ## Features
 - Detects license plates from video streams.
 - Extracts alphanumeric characters from the detected license plates.
@@ -47,7 +50,3 @@ To train the license plate detection model, a custom dataset was used. The train
 
 ## Contributions
 Contributions to the project are welcome. Please feel free to fork the repository, make changes, and submit a pull request.
-
-## Sample Output Video with Visualization
-
-https://github.com/theonlyshafiq/License-Plate-Recognition-System/assets/63657698/3a287c0f-164b-44a1-a632-e92de745965f
